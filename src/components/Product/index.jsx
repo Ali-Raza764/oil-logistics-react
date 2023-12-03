@@ -20,7 +20,7 @@ const Product = ({ item: { name, price } }) => {
           <h2 className="text-gray-900 title-font text-lg font-medium">
             {name}
           </h2>
-          <p className="mt-1">{price}</p>
+          <p className="mt-1">${price}</p>
         </div>
       </Link>
     </div>
