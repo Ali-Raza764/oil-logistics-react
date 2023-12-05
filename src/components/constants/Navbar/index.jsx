@@ -10,7 +10,6 @@ const Navbar = () => {
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
     { href: "/allproducts", label: "Products" },
-    { href: "/productdetails/123", label: "ProductDetails" },
     { href: "/Login", label: "Login" },
   ];
 
@@ -20,11 +19,11 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="px-2 z-10 w-full bg-white shadow-md">
+      <header className="px-2 py-1 z-10 w-full bg-white shadow-md">
         <nav className="flex-props-b max-container">
           <Link to="/" className="flex-props-c">
-            <img src={Icon} className="w-[9rem] h-[5rem] ml-[-3rem]"/>
-            <h2 className="text-3xl font-bold ml-[-2rem]">OTS</h2>
+            <img src={Icon} className="h-[3rem] "/>
+            <h2 className="text-3xl font-bold ">OTS</h2>
           </Link>
           <div className="flex items-center gap-8">
             <ul className="hidden lg:flex gap-8">
@@ -40,13 +39,13 @@ const Navbar = () => {
               ))}
             </ul>
             <div className="hidden lg:flex gap-2 text-lg font-medium font-montserrat">
-              <a href="/" className="text-blue-500 hover:underline">
+              <Link to="/login" className="text-blue-500 hover:underline">
                 Sign in
-              </a>
+              </Link>
               <span>/</span>
-              <a href="/" className="text-green-500 hover:underline">
+              <Link to="/oilcompanydashboard/home" className="text-green-500 hover:underline">
                 Sign Up
-              </a>
+              </Link>
             </div>
             <div
               className="lg:hidden cursor-pointer"

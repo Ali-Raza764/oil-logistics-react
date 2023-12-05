@@ -1,5 +1,12 @@
-export { default as Home } from './Home';
-export { default as Login } from './Login';
-export { default as AllProducts } from './AllProducts';
-export { default as ProductDetails } from './ProductDetails';
-export { default as About } from './About';
+export { default as Home } from "./Home";
+export { default as Login } from "./Login";
+export { default as AllProducts } from "./user/AllProducts";
+export { default as ProductDetails } from "./user/ProductDetails";
+export { default as About } from "./About";
+export { default as Checkout } from "./user/Checkout";
+export { default as UserRoutesLayout } from "./user/UserRoutesLayout";
+export { default as OilCompany } from "./dashboard/OilCompany";
+export { default as CustomClearance } from "./dashboard/CustomClearance";
+export { default as TankOwner } from "./dashboard/TankOwner";
+export { default as ShippingCompany } from "./dashboard/ShippingCompany";
+export { default as PortAuthorities } from "./dashboard/PortAuthorities";
