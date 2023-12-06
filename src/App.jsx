@@ -1,20 +1,20 @@
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {
-  Home,
-  Login,
-  AllProducts,
-  ProductDetails,
-  About,
-  Checkout,
-  UserRoutesLayout,
-  OilCompany,
-  TankOwner,
-  CustomClearance,
-  PortAuthorities,
-} from "./pages";
 import { Footer, Navbar } from "./components";
-import { OilDashboardLayout } from "./layouts";
-import ShipmentCompany from "./pages/dashboard/ShippingCompany";
+import { OilDashboardLayout, PublicLayout } from "./layouts";
+import { UserRoutesLayout } from "./layouts";
+
+const Home = lazy(() => import("./pages/Home"));
+const Login = lazy(() => import("./pages/Login"));
+const AllProducts = lazy(() => import("./pages/AllProducts"));
+const ProductDetails = lazy(() => import("./pages/user/ProductDetails"));
+const About = lazy(() => import("./pages/About"));
+const Checkout = lazy(() => import("./pages/user/Checkout"));
+const OilCompany = lazy(() => import("./pages/dashboard/OilCompany"));
+const TankOwner = lazy(() => import("./pages/dashboard/TankOwner"));
+const CustomClearance = lazy(() => import("./pages/dashboard/CustomClearance"));
+const PortAuthorities = lazy(() => import("./pages/dashboard/PortAuthorities"));
+const ShipmentCompany = lazy(() => import("./pages/dashboard/ShippingCompany"));
 
 function App() {
   const Public_routes = [
@@ -38,23 +38,28 @@ function App() {
   };
 
   return (
-    <>
-      <BrowserRouter>
-        <Navbar />
+    <BrowserRouter>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          {/* Public Routes */}
-          {Public_routes.map((route) => (
-            <Route path={route.path} element={route.element} key={route.path} />
-          ))}
-          {/* Buyer Routes */}
-          <Route path="/user" element={<UserRoutesLayout />}>
-            {buyer_routes.map((route) => (
+          <Route path="/" element={<PublicLayout />}>
+            {/* Public Routes */}
+            {Public_routes.map((route) => (
               <Route
                 path={route.path}
                 element={route.element}
                 key={route.path}
               />
             ))}
+            {/* Buyer Routes */}
+            <Route path="/user" element={<UserRoutesLayout />}>
+              {buyer_routes.map((route) => (
+                <Route
+                  path={route.path}
+                  element={route.element}
+                  key={route.path}
+                />
+              ))}
+            </Route>
           </Route>
 
           {/* oilCompany Dashboard Routes */}
@@ -68,9 +73,9 @@ function App() {
             ))}
           </Route>
         </Routes>
-        <Footer />
-      </BrowserRouter>
-    </>
+      </Suspense>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
