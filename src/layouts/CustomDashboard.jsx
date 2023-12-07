@@ -1,8 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { CustomClearanceSidebar } from "../components/dashboardSidebars";
+import useAuth from "../utils/useAuth";
 
 const CustomDashboardlayout = () => {
-  const user = false;
+  const user = useAuth();
   return user ? (
     <main>
       <CustomClearanceSidebar />

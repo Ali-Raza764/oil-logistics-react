@@ -1,8 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { PortAuthoritiesSidebar } from "../components/dashboardSidebars";
+import useAuth from "../utils/useAuth";
 
 const portDashboard = () => {
-    const user = false;
+    const user = useAuth();
     return user ? (
       <main>
       <PortAuthoritiesSidebar />

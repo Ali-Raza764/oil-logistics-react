@@ -1,9 +1,8 @@
-export { default as Home } from "./Home";
+export { default as Landing } from "./Landing";
 export { default as Login } from "./Login";
-export { default as AllProducts } from "./user/AllProducts";
-export { default as ProductDetails } from "./user/ProductDetails";
+export { default as AllProducts } from "./dashboard/Buyer/AllProducts";
+export { default as ProductDetails } from "./dashboard/Buyer/ProductDetails";
 export { default as About } from "./About";
-export { default as Checkout } from "./user/Checkout";
 export { default as OilCompany } from "./dashboard/OilCompany";
 export { default as CustomClearance } from "./dashboard/CustomClearance";
 export { default as TankOwner } from "./dashboard/TankOwner";

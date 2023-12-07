@@ -1,58 +1,32 @@
-// import { signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../config/firebase";
 // import { toast } from "react-toastify";
-// import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Login = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  
 
-  // const location = useLocation();
-  // const { search } = location;
-  // // Use URLSearchParams to extract query parameters
-  // const queryParams = new URLSearchParams(search);
-  // const returnUrl = queryParams.has("returnUrl") ? queryParams.get("returnUrl") : '';
-  
   const handleLogin = async (e) => {
     e.preventDefault();
-    // setLoading(true)
-    // try {
-    //   const user = await signInWithEmailAndPassword(
-    //     auth,
-    //     e.target.email.value,
-    //     e.target.password.value
-    //   );
-    //   console.log(user);
-    //   console.log(e.target.email.value, e.target.password.value);
-    //   toast.success("logIn successfull", {
-    //     position: "bottom-right",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "light",
-    //   });
-    //   setLoading(false)
-    //   navigate(`/${returnUrl}`)
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-    // } catch (err) {
-    //   console.error(err);
-    //   toast.error("Login Failed!", {
-    //     position: "top-right",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "light",
-    //   });
-    //   setLoading(true)
-    // }
+    if (email == "buyer@email.com") {
+      navigate("/buyerdashboard");
+    } else if (email === "tankowner@email.com") {
+      navigate("/tankownerdashboard");
+    } else if (email === "shippingcompany@email.com") {
+      navigate("/shippingcompanydashboard");
+    } else if (email === "customclearance@email.com") {
+      navigate("/customclearancedashboard");
+    } else if (email === "portauthority@email.com") {
+      navigate("/portauthoritiesdashboard");
+    } else if (email == "oilcompany@email.com") {
+      navigate("/oilcompanydashboard");
+    } else {
+      // Handle the case where the email doesn't match any predefined user type.
+      console.log("Invalid email or user type");
+    }
   };
 
   return (

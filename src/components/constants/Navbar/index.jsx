@@ -1,16 +1,15 @@
-import {Link }from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { RiMenu3Fill, RiCloseLine } from "react-icons/ri";
-import Icon from '../../../assets/icon.png'
+import Icon from "../../../assets/icon.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Us" },
-    { href: "/allproducts", label: "Products" },
-    { href: "/Login", label: "Login" },
+    { href: "/buyerdashboard", label: "Home" },
+    { href: "/buyerdashboard/allproducts", label: "Products" },
+    { href: "/buyerdashboard/orders", label: "Orders" },
   ];
 
   const closeMenu = () => {
@@ -22,7 +21,7 @@ const Navbar = () => {
       <header className="px-2 py-1 z-10 w-full bg-white shadow-md">
         <nav className="flex-props-b max-container">
           <Link to="/" className="flex-props-c">
-            <img src={Icon} className="h-[3rem] "/>
+            <img src={Icon} className="h-[3rem] " />
             <h2 className="text-3xl font-bold ">OTS</h2>
           </Link>
           <div className="flex items-center gap-8">
@@ -39,13 +38,7 @@ const Navbar = () => {
               ))}
             </ul>
             <div className="hidden lg:flex gap-2 text-lg font-medium font-montserrat">
-              <Link to="/login" className="text-blue-500 hover:underline">
-                Sign in
-              </Link>
-              <span>/</span>
-              <Link to="/oilcompanydashboard/home" className="text-green-500 hover:underline">
-                Sign Up
-              </Link>
+              User
             </div>
             <div
               className="lg:hidden cursor-pointer"
