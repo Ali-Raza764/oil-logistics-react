@@ -1,4 +1,4 @@
-import Icon from '../../../assets/icon.png'
+import Icon from '../../../assets/icon.webp'
 const Footer = () => {
   return (
     <footer className="text-gray-600 body-font">
