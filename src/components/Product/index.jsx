@@ -5,7 +5,7 @@ import productIcon from "../../assets/product.png";
 const Product = ({ item: { name, price } }) => {
   return (
     <div className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg">
-      <Link to={`/user/productdetails/${name}`}>
+      <Link to={`/buyerdashboard/productdetails/${name}`}>
         <img
           alt="ecommerce"
           className="object-cover object-center w-full h-full block"

@@ -12,7 +12,7 @@ const Login = () => {
     const password = e.target.password.value;
 
     if (email == "buyer@email.com") {
-      navigate("/buyerdashboard");
+      navigate("/buyerdashboard/home");
     } else if (email === "tankowner@email.com") {
       navigate("/tankownerdashboard");
     } else if (email === "shippingcompany@email.com") {

@@ -14,7 +14,7 @@ import {
 import { Landing } from "./pages";
 
 const Login = lazy(() => import("./pages/Login"));
-const Buyer = lazy(() => import("./pages/dashboard/Buyer"));
+const BuyerHome = lazy(() => import("./pages/dashboard/Buyer"));
 const Checkout = lazy(() => import("./pages/dashboard/Buyer/Checkout"));
 const Orders = lazy(() => import("./pages/dashboard/Buyer/Orders"));
 const AllProducts = lazy(() => import("./pages/dashboard/Buyer/AllProducts"));
@@ -22,7 +22,6 @@ const ProductDetails = lazy(() =>
   import("./pages/dashboard/Buyer/ProductDetails")
 );
 const About = lazy(() => import("./pages/About"));
-// const Buyer = lazy(() => import("./pages/dashboard/Buyer"));
 
 const OilCompany = lazy(() => import("./pages/dashboard/OilCompany"));
 const TankOwner = lazy(() => import("./pages/dashboard/TankOwner"));
@@ -41,7 +40,7 @@ function App() {
     buyer_routes: [
       { path: "productdetails/:name", element: <ProductDetails /> },
       { path: "checkout/:name", element: <Checkout /> },
-      { path: "home", element: <Buyer /> },
+      { path: "home", element: <BuyerHome /> },
       { path: "allproducts", element: <AllProducts /> },
       { path: "orders", element: <Orders /> },
     ],

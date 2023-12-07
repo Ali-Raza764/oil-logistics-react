@@ -68,7 +68,7 @@ const ProductDetails = () => {
                 $58.00
               </span>
               <button className="flex ml-auto text-xl text-black font-semibold bg-[#e7d90ee7] border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded"
-              onClick={()=>navigate(`/checkout/${name}`)}>
+              onClick={()=>navigate(`/buyerdashboard/checkout/${name}`)}>
                 Buy
               </button>
               

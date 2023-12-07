@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { RiMenu3Fill, RiCloseLine } from "react-icons/ri";
-import Icon from "../../../assets/icon.png";
+import Icon from "../../../assets/icon.webp";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "/buyerdashboard", label: "Home" },
+    { href: "/buyerdashboard/home", label: "Home" },
     { href: "/buyerdashboard/allproducts", label: "Products" },
     { href: "/buyerdashboard/orders", label: "Orders" },
   ];

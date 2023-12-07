@@ -1,4 +1,3 @@
-
 import { Product } from "../../../components";
 
 const Buyer = () => {
@@ -23,8 +22,6 @@ const Buyer = () => {
 
   return (
     <div className="min-h-screen w-full">
-      
-
       <div className="flex flex-col  mt-2">
         <h2 className="text-2xl font-bold p-8 ">Popular Products</h2>
         <div className="flex-props-c flex-wrap gap-8">
@@ -33,7 +30,6 @@ const Buyer = () => {
           ))}
         </div>
       </div>
-
     </div>
   );
 };
