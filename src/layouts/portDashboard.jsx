@@ -5,7 +5,7 @@ import useAuth from "../utils/useAuth";
 const portDashboard = () => {
     const user = useAuth();
     return user ? (
-      <main>
+      <main className="flex-props-b">
       <PortAuthoritiesSidebar />
       <Outlet />
     </main>

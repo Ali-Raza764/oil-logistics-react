@@ -26,8 +26,22 @@ const About = lazy(() => import("./pages/About"));
 const OilCompany = lazy(() => import("./pages/dashboard/OilCompany"));
 const TankOwner = lazy(() => import("./pages/dashboard/TankOwner"));
 const CustomClearance = lazy(() => import("./pages/dashboard/CustomClearance"));
-const PortAuthorities = lazy(() => import("./pages/dashboard/PortAuthorities"));
 const ShippingCompany = lazy(() => import("./pages/dashboard/ShippingCompany"));
+
+// port authority imports
+const PortAuthorities = lazy(() => import("./pages/dashboard/PortAuthorities"));
+const PortDispatch = lazy(() =>
+  import("./pages/dashboard/PortAuthorities/Dispatch")
+);
+const PortRough = lazy(() => import("./pages/dashboard/PortAuthorities/Rough"));
+const PortCustomCleared = lazy(() =>
+  import("./pages/dashboard/PortAuthorities/CustomCleared")
+);
+const PortRecieve = lazy(() =>
+  import("./pages/dashboard/PortAuthorities/Recieve")
+);
+
+// import PortDispatch from './pages/dashboard/PortAuthorities/Dispatch'
 
 function App() {
   const Public_routes = [
@@ -48,7 +62,13 @@ function App() {
     tankOwners: [{ path: "home", element: <TankOwner /> }],
     CustomClearance: [{ path: "home", element: <CustomClearance /> }],
     ShippingCompany: [{ path: "home", element: <ShippingCompany /> }],
-    portAuthorities: [{ path: "home", element: <PortAuthorities /> }],
+    portAuthorities: [
+      { path: "home", element: <PortAuthorities /> },
+      { path: "dispatch", element: <PortDispatch /> },
+      { path: "rough", element: <PortRough /> },
+      { path: "recieve", element: <PortRecieve /> },
+      { path: "customcleared", element: <PortCustomCleared /> },
+    ],
   };
 
   return (
