@@ -12,34 +12,35 @@ import {
 
 // pages
 import { Landing } from "./pages";
-
 const Login = lazy(() => import("./pages/Login"));
+const About = lazy(() => import("./pages/About"));
+
+// Buyer imports
 const BuyerHome = lazy(() => import("./pages/dashboard/Buyer"));
 const Checkout = lazy(() => import("./pages/dashboard/Buyer/Checkout"));
 const Orders = lazy(() => import("./pages/dashboard/Buyer/Orders"));
 const AllProducts = lazy(() => import("./pages/dashboard/Buyer/AllProducts"));
-const ProductDetails = lazy(() =>
-  import("./pages/dashboard/Buyer/ProductDetails")
-);
-const About = lazy(() => import("./pages/About"));
+const ProductDetails = lazy(() =>import("./pages/dashboard/Buyer/ProductDetails"));
 
+//oil company imports
 const OilCompany = lazy(() => import("./pages/dashboard/OilCompany"));
+const OilOrders = lazy(() => import("./pages/dashboard/OilCompany/Orders"));
+const OilProducts = lazy(() => import("./pages/dashboard/OilCompany/Products"));
+const OilProfile = lazy(() => import("./pages/dashboard/OilCompany/Profile"));
+
+// tank owner imports
 const TankOwner = lazy(() => import("./pages/dashboard/TankOwner"));
+//custom clearance imports
 const CustomClearance = lazy(() => import("./pages/dashboard/CustomClearance"));
+//shipping company imports
 const ShippingCompany = lazy(() => import("./pages/dashboard/ShippingCompany"));
 
 // port authority imports
 const PortAuthorities = lazy(() => import("./pages/dashboard/PortAuthorities"));
-const PortDispatch = lazy(() =>
-  import("./pages/dashboard/PortAuthorities/Dispatch")
-);
+const PortDispatch = lazy(() =>import("./pages/dashboard/PortAuthorities/Dispatch"));
 const PortRough = lazy(() => import("./pages/dashboard/PortAuthorities/Rough"));
-const PortCustomCleared = lazy(() =>
-  import("./pages/dashboard/PortAuthorities/CustomCleared")
-);
-const PortRecieve = lazy(() =>
-  import("./pages/dashboard/PortAuthorities/Recieve")
-);
+const PortCustomCleared = lazy(() =>import("./pages/dashboard/PortAuthorities/CustomCleared"));
+const PortRecieve = lazy(() =>import("./pages/dashboard/PortAuthorities/Recieve"));
 
 // import PortDispatch from './pages/dashboard/PortAuthorities/Dispatch'
 
@@ -58,7 +59,12 @@ function App() {
       { path: "allproducts", element: <AllProducts /> },
       { path: "orders", element: <Orders /> },
     ],
-    oilComany: [{ path: "home", element: <OilCompany /> }],
+    oilComany: [
+      { path: "home", element: <OilCompany /> },
+      { path: "products", element: <OilProducts /> },
+      { path: "orders", element: <OilOrders /> },
+      { path: "profile", element: <OilProfile /> },
+    ],
     tankOwners: [{ path: "home", element: <TankOwner /> }],
     CustomClearance: [{ path: "home", element: <CustomClearance /> }],
     ShippingCompany: [{ path: "home", element: <ShippingCompany /> }],

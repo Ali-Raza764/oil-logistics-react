@@ -1,94 +1,107 @@
-//import useState hook to create menu collapse state
-import { useState } from "react";
-
-//import react pro sidebar components
-import {
-  ProSidebar,
-  Menu,
-  MenuItem,
-  SidebarHeader,
-  SidebarFooter,
-  SidebarContent,
-} from "react-pro-sidebar";
-
-//import icons from react icons
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   FiHome,
   FiLogOut,
   FiArrowLeftCircle,
   FiArrowRightCircle,
 } from "react-icons/fi";
-import { FaTruck } from "react-icons/fa";
-import { FaTruckRampBox } from "react-icons/fa6";
-import { TiTick } from "react-icons/ti";
-
+import { FaTruck, FaTruckMoving } from "react-icons/fa";
 import { RiPencilLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { TiTick } from "react-icons/ti";
+import Icon from "../../assets/icon.webp";
+import "./sidebar.css";
 
 const PortAuthorities = () => {
-  //create initial menuCollapse state using useState hook
   const [menuCollapse, setMenuCollapse] = useState(false);
 
-  //create a custom function that will change menucollapse state from false to true and true to false
   const menuIconClick = () => {
-    //condition checking to change state from true to false and vice versa
-    menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+    setMenuCollapse(!menuCollapse);
   };
 
   return (
-    <div id="header">
-      {/* collapsed props to change menu size using menucollapse state */}
-      <ProSidebar collapsed={menuCollapse} className="min-h-scren">
-        <SidebarHeader>
-          <div className="logotext">
-            {/* small and big change using menucollapse state */}
-            <p>{menuCollapse ? "Logo" : "Big Logo"}</p>
-          </div>
-          <div className="closemenu" onClick={menuIconClick}>
-            {/* changing menu collapse icon on click */}
-            {menuCollapse ? <FiArrowRightCircle /> : <FiArrowLeftCircle />}
-          </div>
-        </SidebarHeader>
-        <SidebarContent>
-          <Menu iconShape="square">
-            <MenuItem active={true} icon={<FiHome />} className="menuu-item">
-              <Link to={"home"} className="text-black hover:text-gray-500">
-                Home
-              </Link>
-            </MenuItem>
-
-            <MenuItem icon={<FaTruck />} className="menuu-item">
-              <Link to={"dispatch"} className="hover:text-gray-500">
-                Dispatch
-              </Link>
-            </MenuItem>
-
-            <MenuItem icon={<FaTruckRampBox />} className="menuu-item">
-              <Link to={"recieve"} className="hover:text-gray-500">
-                Recieve
-              </Link>
-            </MenuItem>
-
-            <MenuItem icon={<RiPencilLine />} className="menuu-item">
-              <Link to={"rough"} className="hover:text-gray-500">
-                Rough
-              </Link>
-            </MenuItem>
-
-            <MenuItem icon={<TiTick />} className="menuu-item">
-              <Link to={"customcleared"} className="hover:text-gray-500">
-                Cleared
-              </Link>
-            </MenuItem>
-          </Menu>
-        </SidebarContent>
-        <SidebarFooter>
-          <Menu iconShape="square">
-            <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
-          </Menu>
-        </SidebarFooter>
-      </ProSidebar>
+    <div className="min-h-screen flex items-start sticky top-0 left-0 ">
+      <button
+        onClick={menuIconClick}
+        type="button"
+        className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600"
+      >
+        <span className="sr-only">Open sidebar</span>
+        {menuCollapse ? (
+          <FiArrowRightCircle className="w-6 h-6" />
+        ) : (
+          <FiArrowLeftCircle className="w-6 h-6" />
+        )}
+      </button>
+      <aside
+         className={`bg-white z-40 w-[20vw] fixed top-0 left-0 h-screen transition-transform shadow-2xl p-4 ${
+          menuCollapse ? "-translate-x-full" : "translate-x-0"
+        } sm:translate-x-0`}
+        aria-label="Sidebar"
+      >
+        <div className="flex-props-b p-2">
+          <img src={Icon} alt="logo" className="w-11" />
+          <h2 className="text-2xl font-bold font-sans mr-[5rem]">OLS</h2>
+        </div>
+        <ul className="space-y-2 font-medium">
+          <li>
+            <NavLink
+              to="/portauthoritiesdashboard/home"
+              className="flex items-center p-2 text-gray-900 rounded-lg  group menu-NavLink hover:bg-yellow-400"
+            >
+              <FiHome className="w-5 h-5" />
+              <span className="ms-3">Home</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/portauthoritiesdashboard/dispatch"
+              className="flex items-center p-2 text-gray-900 rounded-lg group menu-NavLink hover:bg-yellow-400"
+            >
+              <FaTruck className="w-5 h-5" />
+              <span className="ms-3">Dispatch</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/portauthoritiesdashboard/recieve"
+              className="flex items-center p-2 text-gray-900 rounded-lg  group menu-NavLink hover:bg-yellow-400"
+            >
+              <FaTruckMoving className="w-5 h-5" />
+              <span className="ms-3">Receive</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/portauthoritiesdashboard/rough"
+              className="flex items-center p-2 text-gray-900 rounded-lg  group menu-NavLink hover:bg-yellow-400"
+            >
+              <RiPencilLine className="w-5 h-5" />
+              <span className="ms-3">Rough</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/portauthoritiesdashboard/customcleared"
+              className="flex items-center p-2 text-gray-900 rounded-lg  group menu-NavLink hover:bg-yellow-400"
+            >
+              <TiTick className="w-5 h-5" />
+              <span className="ms-3">Cleared</span>
+            </NavLink>
+          </li>
+        </ul>
+        <div className="flex end p-4 border-2 border-yellow-400 mt-[100%]">
+          <button
+            className="text-gray-900 font-bold hover:text-gray-70 flex"
+            onClick={() => console.log("Logout clicked")} // Replace with your logout logic
+          >
+            <FiLogOut className="w-5 h-5" />
+            <span className="ms-2">Logout</span>
+          </button>
+        </div>
+      </aside>
     </div>
   );
 };
+
 export default PortAuthorities;
